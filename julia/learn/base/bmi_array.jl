@@ -10,7 +10,7 @@ indexes = broadcast(bmi, weights, heights)
 
 function bmi_category(index::Float64)
     class = 0
-    if index < 18.5
+    if index < 18.5  
         class = 1
     elseif index < 24
         class = 2
