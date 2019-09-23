@@ -92,4 +92,4 @@ class Chain(object):
 
 print(Chain().status.user.timeline.list)
 # TODO: 如何写出 /users/:user/repos 调用？
-print(Chain().users('michael').repos)
+# print(Chain().users('michael').repos)
