@@ -2,15 +2,16 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 20:50:40
- * @LastEditTime: 2019-09-28 23:11:15
+ * @LastEditTime: 2019-09-28 23:15:11
  * @LastEditors: Please set LastEditors
  -->
  ## 开发
- |  |  |  |  |  |  |  |  |  |  |
- | :---- | :---- | :---- | :---- | :---- |  :---- | :---- | :---- | :---- | :---- |
- | [开发者头条](http://toutiao.io) | [开源中国](http://www.oschina.net) | [InfoQ](http://www.infoq.com/cn/) | [ITPUB](http://www.itpub.net) | [博客园](http://www.cnblogs.com) | [51CTO](http://www.51cto.com) | [并发编程网](http://ifeve.com) | [CSDN](http://www.csdn.net) | [36kr](http://36kr.com) | [东奥会计在线](http://www.dongao.com) |
-| [Github](http://www.github.com) | [图灵社区](http://www.ituring.com.cn) | [知乎](http://www.zhihu.com) | [UDN](http://udn.yyuap.com) | [脚本之家](http://www.jb51.net) | [炼数成金](http://f.dataguru.cn) | [DOIT](http://www.doit.com.cn) | [mvnRepository](http://mvnrepository.com) | [人人都是产品经理](http://www.woshipm.com) | [三通it](http://www.santongit.com) |
-| [LeetCode](https://leetcode-cn.com) | [kubernetes](https://kubernetes.feisky.xyz/zh/) | [k8s](https://kubernetes.io/cn/docs/) | [华中科大](http://mirrors.hust.edu.cn) | [书栈网](https://www.bookstack.cn) | [星辰代理](http://starhub.cloud) | [osxwin](https://www.osxwin.com) | [研究生招生信息网](http://www.chsi.com.cn) | [极客学院](http://www.jikexueyuan.com) | |
+ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+ | :---- | :---- | :---- | :---- | :---- |  :---- | :---- | :---- |
+ | [开发者头条](http://toutiao.io) | [开源中国](http://www.oschina.net) | [InfoQ](http://www.infoq.com/cn/) | [ITPUB](http://www.itpub.net) | [博客园](http://www.cnblogs.com) | [51CTO](http://www.51cto.com) | [并发编程网](http://ifeve.com) | [CSDN](http://www.csdn.net) |
+ | [36kr](http://36kr.com) | [东奥会计在线](http://www.dongao.com) | [Github](http://www.github.com) | [图灵社区](http://www.ituring.com.cn) | [知乎](http://www.zhihu.com) | [UDN](http://udn.yyuap.com) | [脚本之家](http://www.jb51.net) | [炼数成金](http://f.dataguru.cn) |
+ | [DOIT](http://www.doit.com.cn) | [mvnRepository](http://mvnrepository.com) | [人人都是产品经理](http://www.woshipm.com) | [三通it](http://www.santongit.com) | [LeetCode](https://leetcode-cn.com) | [kubernetes](https://kubernetes.feisky.xyz/zh/) | [k8s](https://kubernetes.io/cn/docs/) | [华中科大](http://mirrors.hust.edu.cn) |
+ | [书栈网](https://www.bookstack.cn) | [星辰代理](http://starhub.cloud) | [osxwin](https://www.osxwin.com) | [研究生招生信息网](http://www.chsi.com.cn) | [极客学院](http://www.jikexueyuan.com) | | | |
 ## 购物
  |  |  |  |  |  |  |
  | :---- | :---- | :---- | :---- | :---- |  :---- |
