@@ -2,16 +2,15 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 20:50:40
- * @LastEditTime: 2019-09-28 23:45:52
+ * @LastEditTime: 2019-09-28 23:49:42
  * @LastEditors: Please set LastEditors
  -->
  ## 技术
- |  |  |  |  |  |  |  |  |
- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
- | [开发者头条](http://toutiao.io) | [oschina](http://www.oschina.net) | [InfoQ](http://www.infoq.com/cn/) | [ITPUB](http://www.itpub.net) | [cnblog](http://www.cnblogs.com) | [51CTO](http://www.51cto.com) | [CSDN](http://www.csdn.net) | [36kr](http://36kr.com) |
- | [并发编程](http://ifeve.com) | [图灵社区](http://www.ituring.com.cn) |  [脚本之家](http://www.jb51.net) | [我是PM](http://www.woshipm.com) | [知乎](http://www.zhihu.com) | [炼数成金](http://f.dataguru.cn) | [极客学院](http://www.jikexueyuan.com) | [三通it](http://www.santongit.com) | 
- | [LeetCode](https://leetcode-cn.com) | [k8s-zh](https://kubernetes.feisky.xyz/zh/) | [k8s](https://kubernetes.io/cn/docs/) |  |
- | [书栈网](https://www.bookstack.cn) | [研究生招生](http://www.chsi.com.cn) | [东奥会计](http://www.dongao.com) | [mvnrepo](http://mvnrepository.com) | [华中科大](http://mirrors.hust.edu.cn) |
+ |  |  |  |  |  |  |  |  |  |  |
+ | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+ | [开发者头条](http://toutiao.io) | [oschina](http://www.oschina.net) | [InfoQ](http://www.infoq.com/cn/) | [ITPUB](http://www.itpub.net) | [cnblog](http://www.cnblogs.com) | [51CTO](http://www.51cto.com) | [CSDN](http://www.csdn.net) | [36kr](http://36kr.com) | [我是PM](http://www.woshipm.com) | [知乎](http://www.zhihu.com) |
+ | [并发编程](http://ifeve.com) | [图灵](http://www.ituring.com.cn) | [脚本之家](http://www.jb51.net) | [炼数成金](http://f.dataguru.cn) | [极客学院](http://www.jikexueyuan.com) | [三通it](http://www.santongit.com) | [LeetCode](https://leetcode-cn.com) | [k8s-zh](https://kubernetes.feisky.xyz/zh/) | [k8s](https://kubernetes.io/cn/docs/) | [书栈](https://www.bookstack.cn) |
+ | [研究生招生](http://www.chsi.com.cn) | [东奥会计](http://www.dongao.com) | [mvnrepo](http://mvnrepository.com) | [华中科大](http://mirrors.hust.edu.cn) |
 ## 购物
  | 1 | 2 | 3 | 4 | 5 | 6 |
  | :---- | :---- | :---- | :---- | :---- |  :---- |
