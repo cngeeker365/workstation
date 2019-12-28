@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: dm-user-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka/
+#feign:
+#  hystrix:
+#    enabled: true
+dm-user-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+ribbon:
+  eureka:
+    enabled: true

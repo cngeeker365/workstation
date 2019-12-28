@@ -1,0 +1,9 @@
+# 1. 加密配置（使用无限制的JCE进行加密解密，需要配置JCE包到JDK和JRE的lib\security中）
+# 2. 重启config-server
+#   2.1 常用地址
+#     a）加密：http://localhost:7900/encrypt，请求的Body中的RAW添加要加密的内容
+#     b) 解密：http://localhost:7900/decrypt, 请求的Body中的RAW添加要解密的内容
+#     c) 状态：http://localhost:7900/encrypt/status
+#   2.2 目标配置文件中的密文前需使用{cipher}修饰，否则不参与加密解密
+encrypt:
+  key: dm

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: dm-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/shine365/config-demo.git
+          username: 277263044@qq.com
+          password: Passw0rd123
+          search-paths: config-file
+server:
+  port: 7900
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka/
