@@ -1,6 +1,5 @@
-package mr.wc;
+package mr.fof;
 
-import mr.weather.TQMapper;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -12,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class WCJob {
+public class FofJobTwo {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         //默认加载src 下的配置文件
         Configuration conf = new Configuration();
@@ -20,22 +19,20 @@ public class WCJob {
         conf.set("mapred.jar","F:\\workstation\\java\\hadoop\\target\\hadoop-1.0-SNAPSHOT.jar");
         Job job = Job.getInstance(conf);
 
-        job.setJarByClass(WCJob.class);
+        job.setJarByClass(FofJobTwo.class);
 
-        job.setMapperClass(TQMapper.class);
+        job.setMapperClass(FofMapperTwo.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
 
-        job.setReducerClass(WCReducer.class);
+        job.setReducerClass(FofReducerTwo.class);
 
-        /**
-         * 在Map端进行第一步计算
-         */
-        job.setCombinerClass(WCReducer.class);
+        job.setSortComparatorClass(FofSort.class);
+        job.setGroupingComparatorClass(FofGroup.class);
 
-        FileInputFormat.addInputPath(job, new Path("/wc/input/wc"));
+        FileInputFormat.addInputPath(job, new Path("/fof/output1"));
 
-        Path outpath = new Path("/wc/output");
+        Path outpath = new Path("/fof/output2");
         FileSystem fs = FileSystem.newInstance(conf);
 
         if(fs.exists(outpath)){

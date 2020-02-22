@@ -52,9 +52,10 @@ public class Up2hdfs {
 
     @Test
     public void upload() throws Exception{
-        Path path = new Path("/wc/input/wc");
+//        Path path = new Path("/wc/input/wc");
+        Path path = new Path("/weather/input/tq");
         FSDataOutputStream outputStream = fs.create(path);
-        FileUtils.copyFile(new File("F://testData.txt"), outputStream);
+        FileUtils.copyFile(new File("F://workstation//java//hadoop//src//main//java//mr//weather//tq"), outputStream);
     }
 
     /**

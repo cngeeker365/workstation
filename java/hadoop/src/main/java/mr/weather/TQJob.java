@@ -1,18 +1,16 @@
-package mr.wc;
+package mr.weather;
 
-import mr.weather.TQMapper;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
 
-public class WCJob {
+public class TQJob {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         //默认加载src 下的配置文件
         Configuration conf = new Configuration();
@@ -20,22 +18,23 @@ public class WCJob {
         conf.set("mapred.jar","F:\\workstation\\java\\hadoop\\target\\hadoop-1.0-SNAPSHOT.jar");
         Job job = Job.getInstance(conf);
 
-        job.setJarByClass(WCJob.class);
+        job.setJarByClass(TQJob.class);
 
         job.setMapperClass(TQMapper.class);
-        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputKeyClass(Weather.class);
         job.setMapOutputValueClass(IntWritable.class);
 
-        job.setReducerClass(WCReducer.class);
+        job.setReducerClass(TQReducer.class);
 
-        /**
-         * 在Map端进行第一步计算
-         */
-        job.setCombinerClass(WCReducer.class);
+        job.setPartitionerClass(TQPartition.class);
+        job.setSortComparatorClass(TQSort.class);
+        job.setGroupingComparatorClass(TQGroup.class);
 
-        FileInputFormat.addInputPath(job, new Path("/wc/input/wc"));
+        job.setNumReduceTasks(3);
 
-        Path outpath = new Path("/wc/output");
+        FileInputFormat.addInputPath(job, new Path("/weather/input/data"));
+
+        Path outpath = new Path("/weather/output");
         FileSystem fs = FileSystem.newInstance(conf);
 
         if(fs.exists(outpath)){
