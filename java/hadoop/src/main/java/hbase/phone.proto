@@ -1,0 +1,12 @@
+syntax = "proto2";
+package hbase;
+
+message pdetail{
+    required string pnum = 1;
+    required string time = 2;
+    required string type = 3;
+}
+
+message pday {
+    required pdetail plist = 1;
+}
