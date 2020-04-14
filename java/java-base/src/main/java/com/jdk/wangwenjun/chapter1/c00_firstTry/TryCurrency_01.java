@@ -1,4 +1,4 @@
-package com.jdk.highLevel.wangwenjun.concurrency.chapter1;
+package com.jdk.wangwenjun.chapter1.c00_firstTry;
 
 /**
  * @author taobaibai
