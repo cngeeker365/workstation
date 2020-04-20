@@ -1,4 +1,4 @@
-package com.jdk.wangwenjun.chapter5.c01_threadPoolExecutor;
+package com.jdk.wangwenjun.chapter5.c02_scheduler;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
