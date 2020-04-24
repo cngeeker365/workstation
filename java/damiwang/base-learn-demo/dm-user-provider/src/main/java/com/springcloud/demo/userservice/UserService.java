@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class UserService {
     private Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @RequestMapping(value="/login", method= RequestMethod.GET)
     public String login(@RequestParam("count") int count) throws Exception{
         logger.info("access @ provider 8080 as "+ count);
