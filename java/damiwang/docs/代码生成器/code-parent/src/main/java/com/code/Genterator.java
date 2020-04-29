@@ -42,11 +42,11 @@ public class Genterator {
 //            mvcHandler.executeClientFallBack_dm(table);//ok
 
 //             user模块对应的client接口
-            mvcHandler.executeClient_dm_user(table);//ok
-            mvcHandler.executeClientFallBack_dm(table);//ok
+//            mvcHandler.executeClient_dm_user(table);//ok
+//            mvcHandler.executeClientFallBack_dm(table);//ok
 
 //             item模块对应的provider实现
-            mvcHandler.executeService_dm_item(table);//ok
+//            mvcHandler.executeService_dm_item(table);//ok
 
 //             order模块对应的provider实现
 //            mvcHandler.executeService_dm_order(table);//ok
@@ -55,7 +55,7 @@ public class Genterator {
 //            mvcHandler.executeService_dm_pay(table);//ok
 
 //             shceduler模块对应的provider实现
-//            mvcHandler.executeService_dm_scheduler(table);//ok
+            mvcHandler.executeService_dm_scheduler(table);//ok
 
 //             user模块对应的provider实现
 //            mvcHandler.executeService_dm_user(table);//ok

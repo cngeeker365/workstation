@@ -1,0 +1,37 @@
+server:
+  port: 7400
+spring:
+  application:
+    name: dm-order-consumer
+  redis:
+    database: 0
+    host: 192.168.238.131
+    port: 6379
+#    password: 123456
+    timeout: 3000
+  kafka:
+    producer:
+      retries: 0
+      #batch-size: 16384
+      bootstrap-servers: 192.168.238.131:9092,192.168.238.132:9092,192.168.238.133:9092
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      poll-timeout: 10000
+  # ∑¢Õ˘ ZipKin Server µƒ≈‰÷√
+  #  zipkin:
+  #    base-url: http://localhost:7700
+  rabbitmq:
+    host: 192.168.238.147
+    port: 5672
+    username: admin
+    password: 123456
+  sleuth:
+    sampler:
+      percentage: 1.0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka/
+moduleName: dm-order-consumer

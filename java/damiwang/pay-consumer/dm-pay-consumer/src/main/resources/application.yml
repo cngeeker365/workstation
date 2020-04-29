@@ -1,0 +1,52 @@
+server:
+  port: 7300
+spring:
+  application:
+    name: dm-user-consumer
+  redis:
+    database: 0
+    host: 192.168.238.131
+    port: 6379
+    timeout: 3000
+  kafka:
+    producer:
+      retries: 0
+      #batch-size: 16384 #
+      bootstrap-servers: 192.168.238.131:9092,192.168.238.132:9092,192.168.238.133:9092
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      poll-timeout: 10000
+  rabbitmq:
+    host: 192.168.238.147
+    port: 5672
+    username: admin
+    password: 123456
+  sleuth:
+    sampler:
+      percentage: 1.0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka/
+hystrix:
+  command:
+    defalut:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+logging:
+  level: debug
+
+feign:
+  hystrix:
+    enabled: false #禁用容错处理
+moduleName: pay_consumer
+#配置微信支付的参数
+wxpay:
+  appId: wxab8acb865bb1637e
+  mchId: 11473623
+  key: 2ab9071b06b9f739b950ddb41db2690d
+  notifyUrl: http://j19h691179.iok.la/api/wxpay/notify

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: dm-pay-provider
+  rabbitmq:
+    host: 192.168.238.147
+    port: 5672
+    username: admin
+    password: 123456
+  redis:
+    database: 0
+    host: 192.168.238.131
+    port: 6379
+    timeout: 3000
+  datasource:
+    url: jdbc:mysql://192.168.238.147:3306/dm_pay?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka/
+server:
+  port: 7031
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+moduleName: pay_provider
