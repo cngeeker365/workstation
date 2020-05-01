@@ -2,12 +2,12 @@ package cn.shine365.demo.day03.elsearch.domain;
 
 import java.io.Serializable;
 
-import org.springframework.data.elasticsearch.annotations.Document;
+//import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
  * 功能描述：文章对象
  */
-@Document(indexName = "blog", type = "article")
+//@Document(indexName = "blog", type = "article")
 public class Article implements Serializable{
 
 	private static final long serialVersionUID = 1L;

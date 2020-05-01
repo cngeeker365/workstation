@@ -1,8 +1,8 @@
-package cn.shine365.demo.day03.elsearch.controller;
+package cn.shine365.demo.day03.elsearch.article.controller;
 
 import cn.shine365.demo.day03.elsearch.domain.Article;
 import cn.shine365.demo.day03.elsearch.domain.JsonData;
-import cn.shine365.demo.day03.elsearch.repository.ArticleRepository;
+import cn.shine365.demo.day03.elsearch.article.controller.repository.ArticleRepository;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ArticleController {
 		article.setTitle(title);
 		article.setSummary("搜索框架整合");
 		
-		articleRepository.save(article);
+//		articleRepository.save(article);
 	
 		return JsonData.buildSuccess();
 	}
@@ -41,9 +41,10 @@ public class ArticleController {
 		//QueryBuilder queryBuilder = QueryBuilders.matchAllQuery(); //搜索全部文档
 		QueryBuilder queryBuilder = QueryBuilders.matchQuery("title", title);
 
-		Iterable<Article> list =  articleRepository.search(queryBuilder);
+//		Iterable<Article> list =  articleRepository.search(queryBuilder);
 		
-		return JsonData.buildSuccess(list);
+//		return JsonData.buildSuccess(list);
+		return null;
 	}
 	
 	

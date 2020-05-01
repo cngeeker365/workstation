@@ -1,0 +1,23 @@
+server:
+  port: 8341
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  application:
+    name: dm-es-provider
+  data:
+    elasticsearch:
+      cluster-name: cluster-es
+      cluster-nodes: 192.168.238.131:9200,192.168.238.132:9200,192.168.238.133:9200
+logging:
+  level: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:123456@localhost:7776/eureka/
+
+
+lastUpdateTimeFile:
+  E:/dm_last_update_File
+
+moduleName: dm-es-provider
