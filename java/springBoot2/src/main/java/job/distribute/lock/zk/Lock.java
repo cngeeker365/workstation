@@ -1,4 +1,4 @@
-package job.zk;
+package job.distribute.lock.zk;
 
 /**
  * @author taobaibai

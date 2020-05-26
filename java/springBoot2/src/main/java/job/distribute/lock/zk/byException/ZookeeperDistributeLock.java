@@ -1,5 +1,6 @@
-package job.zk;
+package job.distribute.lock.zk.byException;
 
+import job.distribute.lock.zk.ZookeeperAbstractLock;
 import org.I0Itec.zkclient.IZkDataListener;
 
 import java.util.concurrent.CountDownLatch;

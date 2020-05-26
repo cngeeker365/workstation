@@ -25,6 +25,6 @@
     <dubbo:service interface="dubbo.demo.ProviderService" ref="providerService"/>
 
     <!--Bean bean定义-->
-    <bean id="providerService" class="dubbo.demo.xml.ProviderServiceImpl"/>
+    <bean id="providerService" class="dubbo.demo.xml.provider.ProviderServiceImpl"/>
 
 </beans>

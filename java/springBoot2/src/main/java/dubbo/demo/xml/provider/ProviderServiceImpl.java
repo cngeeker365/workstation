@@ -9,6 +9,13 @@ import dubbo.demo.ProviderService;
 public class ProviderServiceImpl implements ProviderService {
     @Override
     public String sayHello(String word) {
+        if("hello".equals(word)){
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return word;
     }
 }

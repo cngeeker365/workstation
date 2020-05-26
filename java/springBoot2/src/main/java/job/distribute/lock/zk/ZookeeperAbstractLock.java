@@ -1,4 +1,4 @@
-package job.zk;
+package job.distribute.lock.zk;
 
 import org.I0Itec.zkclient.ZkClient;
 

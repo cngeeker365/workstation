@@ -19,6 +19,7 @@
 <!--                     interface="dubbo.demo.provider.ProviderService"-->
 <!--                     url="dubbo://localhost:20880/dubbo.demo.provider.ProviderService"/>-->
 
-    <dubbo:reference id="providerService" interface="dubbo.demo.ProviderService"/>
+<!--    <dubbo:reference id="providerService" interface="dubbo.demo.ProviderService" timeout="10000" check="false" mock="return null"/>-->
+    <dubbo:reference id="providerService" interface="dubbo.demo.ProviderService" timeout="200" check="false" mock="true"/>
 
 </beans>

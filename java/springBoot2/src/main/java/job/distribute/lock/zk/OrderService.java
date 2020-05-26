@@ -1,5 +1,9 @@
 package job.zk;
 
+import job.distribute.lock.zk.Lock;
+import job.distribute.lock.zk.byException.ZookeeperDistributeLock;
+import job.distribute.lock.zk.bySeqListen.ZookeeperDistributeLock2;
+
 import java.util.Random;
 
 /**
@@ -9,7 +13,8 @@ import java.util.Random;
 public class OrderService implements Runnable {
 //    private OrderNumGenerator orderNumGenerator = new OrderNumGenerator();
     //使用 Lock
-    private Lock lock = new ZookeeperDistributeLock();
+//    private Lock lock = new ZookeeperDistributeLock();
+    private Lock lock = new ZookeeperDistributeLock2();
 
     @Override
     public void run() {
