@@ -1,0 +1,146 @@
+#===========================================多环境配置=================================================
+# 指定生效的profile
+#spring.profiles.active=test
+
+#===========================================端口配置===================================================
+server:
+  port: 8899
+#===========================================Actuator监控配置===========================================
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      base-path: /manage
+      exposure:
+      include: *
+#===========================================文件上传目录===============================================
+web:
+  file:
+    path: F:\\resources\\static\\images\\
+
+spring:
+  # ===========================================重置Banner===========================================
+  banner:
+    location: classpath:banner.txt
+  # ===========================================Freemarker配置===========================================
+  freemarker:
+    cache: false
+    charset: UTF-8
+    allow-request-override: false
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+  #===========================================整合thymeleaf相关配置===========================================
+  thymeleaf:
+    #开发时关闭缓存,不然没法看到实时页面
+    cache: false
+    mode: HTML5
+    prefix: classpath:/templates/tl/
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    suffix: .html
+  #===========================================配置加载文件位置============================================
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/test/
+  #===========================================热加载配置============================================
+  devtools:
+    restart:
+      trigger-file: trigger.txt
+#     exclude: static/**,public/**     # 指定某些文件不进行监听，即不会进行热加载
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    jdbc-url: jdbc:mysql://192.168.238.131:3306/test?useUnicode=true&characterEncoding=utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
+    #=========================================多数据源配置============================================
+    db1:
+      driverClassName: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      jdbc-url: jdbc:mysql://192.168.238.131:3306/test?useUnicode=true&characterEncoding=utf-8
+      type: com.alibaba.druid.pool.DruidDataSource
+    db2:
+      driverClassName: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      jdbc-url: jdbc:mysql://192.168.238.147:3306/test?useUnicode=true&characterEncoding=utf-8
+      type: com.alibaba.druid.pool.DruidDataSource
+  #===========================================redis基础配置===========================================
+  # cd /usr/local/redis/bin
+  # ./redis-server redis.conf
+  #==================================================================================================
+  redis:
+    database: 0
+    host: 192.168.238.131
+    port: 6379
+    timeout: 3000 # 连接超时时间 单位 ms（毫秒）
+    #===========================================redis线程池设置===========================================
+    jedis:
+      pool:
+        max-active: 2000 # 如果赋值为-1，则表示不限制；pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)
+        max-wait: # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时
+        max-idle: 200 # 连接池中的最大空闲连接，默认值也是8。
+        min-idle: 200 #连接池中的最小空闲连接，默认值也是0。
+  #===========================================Elasticsearch===========================================
+  # su elsearch
+  # cd /opt/el*/bin
+  # ./elasticsearch
+  #===================================================================================================
+  elasticsearch:
+    rest:
+      uris: 192.168.238.131:9200,192.168.238.132:9200,192.168.238.133:9200
+  data:
+    elasticsearch:
+      cluster-name: cluster-es
+      cluster-nodes: 192.168.238.131:9300,192.168.238.132:9300,192.168.238.133:9300
+      client:
+        reactive:
+          username: elsearch
+          password: 123456
+          connection-timeout: 100000
+          socket-timeout: 5000
+          use-ssl: false
+      repositories:
+        enabled: true
+  # ===========================================ActiveMQ===========================================
+  # cd /opt/apache-activemq-5.15.12/bin/
+  # ./activemq start
+  # web页面：http://192.168.238.131:8161/admin/queues.jsp
+  # ==============================================================================================
+  #整合jms测试，安装在别的机器，防火墙和端口号记得开放
+  #集群配置 spring.activemq.broker-url=failover:(tcp://localhost:61616,tcp://localhost:61617)
+  activemq:
+    broker-url: tcp://192.168.238.131:61616
+    user: admin
+    password: admin
+    #下列配置要增加依赖
+    pool:
+      enabled: true
+      max-connections: 100
+  #点对点时注释掉，要同时支持时也应注释掉
+  #spring.jms.pub-sub-domain=true
+
+  # ===========================================RocketMQ===========================================
+  # cd /opt/rocketmq-all-4.7.0/bin/
+  # ./mqnamesrv                           启动namesrv服务     查看日志：tailf ~/logs/rocketmqlogs/namesrv.log
+  # ./mqbroker -n localhost:9876          启动broker服务      查看日志：tailf ~/logs/rocketmqlogs/broker.log
+  # ./mqshutdown namesrv                  关闭namesrv服务
+  # ./mqshutdown broker                   关闭broker服务
+  # ==============================================================================================
+rocketmq:
+  name-server: 192.168.238.131:9876
+  producer:
+    group: Producer
+  consumer:
+    PushConsumer: orderConsumer
+#===========================================mybatis 日志配置============================================
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
