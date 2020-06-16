@@ -1,0 +1,31 @@
+# kubectl create -f 02_Deployment.yaml --record                       ## --record参数可以记录命令，我们可以很方便的查看每次 revision 的变化
+# kubectl get deployment
+# kubectl get rs
+# kubectl get pod -o wide
+# kubectl describe deployments
+# kubectl scale deployment nginx-deployment --replicas=10             ## 扩容：仅 副本数 的增减，不会变更模板，不会创建新的 rs
+# kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1     ## 更新镜像版本
+# kubectl rollout status deployments nginx-deployment                 ## 查看执行状态
+# kubectl rollout history deployments nginx-deployment                ## 查看历史
+# kubectl rollout undo deployment/nginx-deployment                    ## 回滚到上一版本
+# kubectl rollout undo deployment/nginx-deployment --to-revision=1    ## 回滚到指定版本
+# echo $?                                                             ## 查看回滚结果，成功=0
+# kubectl rollout pause deployment/nginx-deployment                   ## 暂停更新
+# kubectl autoscale deployment nginx-deployment --min=10 --max=15 --cpu-percent=80    ## 若集群支持 HPA，还可为 Deployment 设置自动扩展
+# kubectl edit deployment/nginx-deployment                            ## 编辑 Deployment
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80

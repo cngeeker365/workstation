@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+    version: v1
+spec:
+  containers:
+    - name: app
+      image: hub.atiguigu.com/library/myapp:v1
+    - name: test
+      image: hub.atiguigu.com/library/myapp:v1
+
+# kubectl apply -f 01_SimplePod.yaml
+# kubectl get pod
+
+#--------------------------------------------------------
+# 遇到错误的解决思路：
+#   1. 查看 pod 的 详细信息：Pod信息、内部容器状态 等
+#   2. 查看 Pod 内某一报错 container 的日志：-c 指定
+#--------------------------------------------------------
+# kubectl describe pod myapp-pod
+# kubectl log myapp-pod -c test
+
+# kubectl delete pod myapp-pod
+
+# kubectl create -f 01_SimplePod.yaml
+# kubectl get pod -o wide

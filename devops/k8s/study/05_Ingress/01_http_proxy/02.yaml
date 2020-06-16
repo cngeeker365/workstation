@@ -1,0 +1,48 @@
+# kubectl apply -f 02.yaml
+# 修改host文件
+# kubectl get svc -n ingress-nginx
+# curl http://192.168.238.135:31685/
+# kubectl delete -f 02.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deployment2
+spec:
+  replicas: 2
+  template:
+  metadata:
+    labels:
+      name: nginx2
+  spec:
+    containers:
+    - name: nginx2
+      image: wangyanglinux/myapp:v1
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-2
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    name: nginx2
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress2
+spec:
+  rules:
+    - host: www2.atguigu.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: svc-2
+            servicePort: 80

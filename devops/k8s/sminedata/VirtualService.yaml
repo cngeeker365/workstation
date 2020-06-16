@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: zjkyfrontendpc
+spec:
+  hosts:
+  - 'zjdataplatform.sminedata.com'
+  gateways:
+  - zjkyfrontendpc-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: zjkyfrontendpc
+        subset: versionParam

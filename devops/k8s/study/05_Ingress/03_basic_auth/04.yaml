@@ -1,0 +1,20 @@
+# kubectl apply -f 04.yaml
+# 修改 hosts
+# 页面访问 http://auth.atguigu.com:31354/
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-with-auth
+  annotations:
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - foo'
+spec:
+  rules:
+  - host: auth.atguigu.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: svc-1
+          servicePort: 80

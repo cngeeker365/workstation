@@ -1,0 +1,18 @@
+# kubectl apply -f 05.yaml
+# 修改 hosts
+# 页面访问 http://re.atguigu.com
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-test
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: http://www3.atguigu.com:31802
+spec:
+  rules:
+  - host: re.atguigu.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: svc-1
+          servicePort: 80

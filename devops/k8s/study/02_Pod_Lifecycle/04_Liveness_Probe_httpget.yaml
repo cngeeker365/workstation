@@ -1,0 +1,27 @@
+# 检测探针——存活检测
+# kubectl create -f 04_....yaml
+# kubectl get pod -o wide       =>  READY=1/1   STATUS=Running  RESTART=0   IP=10.244.2.11
+# curl 10.244.2.11/index.html   =>  200
+# kubectl exec liveness-httpget-container -it -- rm -rf /usr/share/nginx/html/index.html
+# curl 10.244.2.11/index.html   =>  404
+# kubectl get pod -w  => RESTARTS=1
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-httpget-pod
+  namespace: default
+spec:
+  containers:
+  - name: liveness-httpget-container
+    image: hub.atguigu.com/library/myapp:v1
+    imagePullPolicy: IfNotPresent
+    ports:
+    - name: http
+      containerPort: 80
+    livenessProbe:
+      httpGet:
+        port: http
+        path: /index.html
+      initialDelaySeconds: 1
+      periodSeconds: 3
+      timeoutSeconds: 10  # 超时时间

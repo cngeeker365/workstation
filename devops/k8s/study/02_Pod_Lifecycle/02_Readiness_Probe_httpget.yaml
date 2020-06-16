@@ -1,0 +1,26 @@
+# 检测探针——就绪检测
+# kubectl create -f 02_xxx.yaml
+# kubectl get pod                                                                     =>  READY=0/1   STATUS=Running
+# kubectl describe pod readiness-httpget-pod                                          =>  Readiness probe failed: HTTP probe failed with statuscode: 404
+# kubectl exec readiness-httpget-pod -c readiness-httpget-container -it -- /bin/sh
+#     cd /usr/share/nginx/html/
+#     echo "123" >> index1.html
+#     exit
+# kubectl get pod -w                                                                  =>  READY=1/1   STATUS=Running
+# kubectl delete pod -all
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness-httpget-pod
+  namespace: default
+spec:
+  containers:
+  - name: readiness-httpget-container
+    image: wangyanglinux/myapp:v1
+    imagePullPolicy: IfNotPresent
+    readinessProbe:
+      httpGet:
+        port: 80
+        path: /index1.html
+      initialDelaySeconds: 1  # 初始化结束后 1s 开始检测
+      periodSeconds: 3 # 重试时间

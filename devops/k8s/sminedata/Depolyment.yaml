@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: zjkyfrontendpc-rollingTagParam
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zjkyfrontendpc
+        creator: buildUserParam
+        version: versionParam
+    spec:
+      containers:
+      - name: zjkyfrontendpc
+        image: imageParam
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

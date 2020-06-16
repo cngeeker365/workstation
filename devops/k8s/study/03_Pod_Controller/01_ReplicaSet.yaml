@@ -1,0 +1,32 @@
+# kubectl create -f 01_ReplicaSet.yaml
+# kubectl get pod                 =>  3个Pod   NAME=frontend-xxx   READY=1/1   STATUS=Running    RESTART=0
+# kubectl delete pod --all
+# kubectl get pod                 =>  3个Pod   NAME=frontend-xxx   READY=1/1   STATUS=Running    RESTART=0
+# kubectl get pod --show-labels   =>  3个Pod   NAME=frontend-xxx   READY=1/1   STATUS=Running    RESTART=0   LABELS=tier=frontend
+# kubectl label pod frontend-001 tier=frontend_1 --overwrite=True
+# kubectl get pod --show-labels   =>  4个Pod   frontend-001 的 LABELS=tier=frontend_1
+#                                             另外  3个 Pod 的 LABELS=frontend（其中新增一个）
+# kubectl delete rs --all
+# kubectl delete pod --all
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: php-redis
+        image: gcr.io/google_samples/gb-frontend:v3
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 80

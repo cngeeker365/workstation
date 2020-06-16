@@ -1,0 +1,25 @@
+# kubectl apply -f 05_CronJob.yaml
+# kubectl get cronjob -w
+# kubectl get job -w
+# pods=$(kubeclt get pods --selector=job-name=hello-xxx --output=jsonpath={.items..metadata.name})
+# kubectl logs $pods
+# 注意，删除 cronjob 的时候不会自动删除 job，这些 job 可以用 kubectl delete job 来删除
+# kubectl delete cronjob --all
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure

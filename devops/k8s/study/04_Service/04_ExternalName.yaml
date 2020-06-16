@@ -1,0 +1,11 @@
+# kubectl create -f -4_ExternalName.yaml
+# kubectl get svc
+# dig -t A my-service-1.default.svc.cluster.local. @10.244.0.7
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-service-1
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: hub.atguigu.com

@@ -1,0 +1,19 @@
+# kubectl create -f 04_Job.yaml
+# kubectl get pod
+# kubectl describe pod xxx
+# kubectl get job
+# kubectl delete job pi
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    metadata:
+      name: pi
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: ["perl", "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
